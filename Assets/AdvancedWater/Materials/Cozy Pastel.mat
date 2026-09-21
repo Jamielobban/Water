@@ -1,0 +1,101 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Cozy Pastel
+  m_Shader: {fileID: 4800000, guid: ac053f45fc6b44c4aec8005e27296561, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - _FOAM
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _CausticsMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _FoamMap:
+        m_Texture: {fileID: 2800000, guid: 6a4aa5aa1ed7b9e4e9204a95f56f4d29, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NoiseMap:
+        m_Texture: {fileID: 2800000, guid: 127f36fc4d68f2f48a0a75398a1a1b73, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalA:
+        m_Texture: {fileID: 2800000, guid: ec6f0adef15b52448a82f3f183525d84, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalB:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ShoreFoamMap:
+        m_Texture: {fileID: 2800000, guid: 0ff9da63433ff044ba94d59ff31bbe11, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SurfaceFoamMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _BrushScale: 0.13
+    - _BrushStrength: 0
+    - _CausticsScale: 0.3
+    - _CausticsStrength: 0
+    - _ColorDepth: 5
+    - _ColorSteps: 4
+    - _CrestFoamStrength: 0
+    - _EdgeFade: 0.12
+    - _FoamCoverage: 0.65
+    - _FoamCutoff: 0.5
+    - _FoamScale: 0.12
+    - _FresnelSteps: 3
+    - _HighlightStrength: 0.1
+    - _InteractionFoamStrength: 0.4
+    - _MarkScale: 0.42
+    - _MarkSpeed: 0.035
+    - _MarkStrength: 0.85
+    - _NormalStrength: 0
+    - _OutlineStrength: 0
+    - _ReflectionStrength: 0.18
+    - _ShoreFoamStrength: 1.1
+    - _ShoreFoamWidth: 0.65
+    - _ShoreWaveSpacing: 0.38
+    - _ShoreWaveSpeed: 0.65
+    - _ShoreWaveStrength: 0
+    - _SparkleDensity: 0.24
+    - _StyleMode: 7
+    - _SurfaceFoamCutoff: 0.82
+    - _SurfaceFoamDistortion: 0.12
+    - _SurfaceFoamScale: 0.05
+    - _SurfaceFoamStrength: 0
+    - _SurfaceFoamVariation: 0.25
+    - _UseFoam: 1
+    m_Colors:
+    - _AccentColor: {r: 0.96, g: 0.79, b: 0.9, a: 1}
+    - _Current: {r: 1, g: 0.3, b: 0.15, a: 0}
+    - _DeepColor: {r: 0.38, g: 0.38, b: 0.65, a: 1}
+    - _FoamColor: {r: 1, g: 0.95, b: 0.79, a: 1}
+    - _NormalScale: {r: 0.06, g: 0.18, b: 0, a: 0}
+    - _ShadowColor: {r: 0.42, g: 0.34, b: 0.56, a: 1}
+    - _ShallowColor: {r: 0.56, g: 0.88, b: 0.78, a: 1}
+    - _SurfaceFoamColor: {r: 1, g: 0.9, b: 0.72, a: 1}
+    - _SurfaceFoamShadowColor: {r: 0.079999976, g: 0.02, b: 0.45, a: 1}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1

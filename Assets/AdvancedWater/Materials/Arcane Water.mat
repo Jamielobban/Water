@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Arcane Water
+  m_Shader: {fileID: 4800000, guid: ac053f45fc6b44c4aec8005e27296561, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - _FOAM
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties:
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _CausticsMap:
+        m_Texture: {fileID: 2800000, guid: 322b6bd662eaca34a861d5fb347b5552, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _FoamMap:
+        m_Texture: {fileID: 2800000, guid: 0ff9da63433ff044ba94d59ff31bbe11, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NoiseMap:
+        m_Texture: {fileID: 2800000, guid: b8850342fb8b1e846ac3807e35ec1685, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalA:
+        m_Texture: {fileID: 2800000, guid: ec6f0adef15b52448a82f3f183525d84, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalB:
+        m_Texture: {fileID: 2800000, guid: 88908a7c7a1f0ed418d1048378c17411, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ShoreFoamMap:
+        m_Texture: {fileID: 2800000, guid: 5ea3d632911c4b648893c5f9eb4b46a0, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _BrushScale: 0.13
+    - _BrushStrength: 0.48
+    - _CausticsScale: 0.3
+    - _CausticsStrength: 0
+    - _ColorDepth: 7
+    - _ColorSteps: 4
+    - _CrestFoamStrength: 0
+    - _EdgeFade: 0.25
+    - _FoamCoverage: 0.62
+    - _FoamCutoff: 0.46
+    - _FoamScale: 0.12
+    - _FresnelSteps: 3
+    - _HighlightStrength: 0.5
+    - _NormalStrength: 0.34
+    - _OutlineStrength: 0.15
+    - _ReflectionStrength: 0.28
+    - _ShoreFoamStrength: 0.35
+    - _ShoreFoamWidth: 0.34
+    - _StyleMode: 4
+    - _SurfaceFoamDistortion: 0
+    - _SurfaceFoamVariation: 0
+    - _InteractionFoamStrength: 0.3
+    - _ShoreWaveSpacing: 0.46
+    - _ShoreWaveStrength: 0.18
+    - _ShoreWaveSpeed: 0.5
+    - _UseFoam: 1
+    m_Colors:
+    - _AccentColor: {r: 0.35, g: 0.8, b: 1.8, a: 1}
+    - _Current: {r: 1, g: 0.3, b: 0.14, a: 0}
+    - _DeepColor: {r: 0.035, g: 0.008, b: 0.16, a: 1}
+    - _FoamColor: {r: 0.55, g: 0.9, b: 1.6, a: 1}
+    - _NormalScale: {r: 0.05, g: 0.18, b: 0, a: 0}
+    - _ShadowColor: {r: 0.04, g: 0.005, b: 0.12, a: 1}
+    - _ShallowColor: {r: 0.08, g: 0.28, b: 0.72, a: 1}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1

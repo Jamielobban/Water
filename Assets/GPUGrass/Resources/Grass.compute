@@ -1,0 +1,119 @@
+#pragma kernel Generate
+#pragma kernel Cull
+struct Blade { float4 positionSeed; float4 shape; float4 surfaceNormal; };
+StructuredBuffer<float4> _Surface;
+int _UseSurface, _SurfaceResolution;
+float _SurfaceSize, _Alignment, _MinNormalY;
+RWStructuredBuffer<Blade> _Source;
+AppendStructuredBuffer<Blade> _Near;
+AppendStructuredBuffer<Blade> _Mid;
+AppendStructuredBuffer<Blade> _Far;
+int _Count;
+StructuredBuffer<float4> _Paint;
+int _PaintResolution, _UsePaint;
+int _Flowers;
+float _Size;
+float _StyleDensity;
+float4 _StyleSize;
+float4 _CameraPosition, _Distances;
+float4 _Planes[6];
+uint Hash(uint n) { n ^= n >> 16; n *= 0x7feb352du; n ^= n >> 15; n *= 0x846ca68bu; return n ^ (n >> 16); }
+float Random(uint n) { return (Hash(n) & 0xffffffu) / 16777216.0; }
+float CellNoise(int2 cell)
+{
+    return Random(asuint(cell.x)*73856093u ^ asuint(cell.y)*19349663u);
+}
+float MeadowNoise(float2 p)
+{
+    int2 cell=(int2)floor(p);
+    float2 f=frac(p); f=f*f*(3-2*f);
+    return lerp(lerp(CellNoise(cell),CellNoise(cell+int2(1,0)),f.x),
+        lerp(CellNoise(cell+int2(0,1)),CellNoise(cell+int2(1,1)),f.x),f.y);
+}
+[numthreads(128,1,1)]
+void Generate(uint3 id : SV_DispatchThreadID)
+{
+    if (id.x >= (uint)_Count) return;
+    uint i=id.x;
+    // Most blades share a root neighborhood; occasional singles soften tuft edges.
+    uint tuft=i/7;
+    float2 root=(float2(Random(tuft*13+501),Random(tuft*13+502))-.5)*_Size;
+    float spread=_Flowers!=0 ? .7 : .20;
+    float theta=Random(i*7+101)*6.283185;
+    float radius=sqrt(Random(i*7+102))*spread;
+    float2 p=root+float2(cos(theta),sin(theta))*radius;
+    if (_Flowers==0 && i%7==0)
+        p=(float2(Random(i*7+1),Random(i*7+2))-.5)*_Size;
+    p=clamp(p,-_Size*.5+.001,_Size*.5-.001);
+    float patch=MeadowNoise(p*.11);
+    float typeChoice=patch*.7+Random(i*7+103)*.3;
+    float type=typeChoice<.4 ? 0 : (typeChoice<.72 ? 1 : 2);
+    float density=1;
+    if (_UsePaint!=0)
+    {
+        float2 texel=saturate(p/_Size+.5)*(_PaintResolution-1);
+        int2 a=(int2)floor(texel), b=min(a+1,_PaintResolution-1);
+        float2 f=frac(texel);
+        float3 weights=lerp(lerp(_Paint[a.y*_PaintResolution+a.x].rgb,_Paint[a.y*_PaintResolution+b.x].rgb,f.x),
+            lerp(_Paint[b.y*_PaintResolution+a.x].rgb,_Paint[b.y*_PaintResolution+b.x].rgb,f.x),f.y);
+        density=saturate(weights.x+weights.y+weights.z);
+        float choice=Random(i*7+6)*max(.00001,weights.x+weights.y+weights.z);
+        type=choice<weights.x ? 0 : (choice<weights.x+weights.y ? 1 : 2);
+    }
+    float seed=Random(i*7+3);
+    Blade b;
+    b.positionSeed=float4(p.x,0,p.y,seed);
+    b.surfaceNormal=float4(0,1,0,0);
+    if (_UseSurface!=0)
+    {
+        float2 uv=p/_SurfaceSize+.5;
+        if (any(uv<0) || any(uv>1)) density=0;
+        float2 grid=saturate(uv)*(_SurfaceResolution-1);
+        int2 cell=min((int2)floor(grid),_SurfaceResolution-2);
+        float2 f=grid-cell;
+        int k=cell.y*_SurfaceResolution+cell.x;
+        // Match the mesh's triangle diagonal, including height interpolation.
+        float4 s=f.x+f.y<=1 ? _Surface[k]*(1-f.x-f.y)+_Surface[k+1]*f.x+_Surface[k+_SurfaceResolution]*f.y
+            : _Surface[k+1]*(1-f.y)+_Surface[k+_SurfaceResolution]*(1-f.x)+_Surface[k+_SurfaceResolution+1]*(f.x+f.y-1);
+        float3 normal=normalize(s.xyz);
+        b.positionSeed.y=s.w;
+        b.surfaceNormal.xyz=normalize(lerp(float3(0,1,0),normal,_Alignment));
+        b.surfaceNormal.w=(normal.y<_MinNormalY || any(uv<0) || any(uv>1)) ? 1 : 0;
+    }
+    float height= type==0 ? .30 : (type==1 ? .68 : 1.12);
+    float width= type==0 ? .05 : (type==1 ? .085 : .055);
+    if (_Flowers!=0)
+    {
+        height=type==0 ? .95 : (type==1 ? 1.35 : 1.85);
+        width=.012;
+    }
+    height*=lerp(.8,1.15,patch)*_StyleSize.x;
+    width*=_StyleSize.y;
+    b.shape=float4(height*lerp(.7,1.25,Random(i*7+4)),width*lerp(.8,1.2,seed),type,Random(i*7+5)*6.283185);
+    if (_UsePaint==0)
+    {
+        density=lerp(.22,1,smoothstep(.22,.58,MeadowNoise(p*.2+31)));
+        if (_Flowers!=0) density*=smoothstep(.48,.76,MeadowNoise(p*.13+73))*.65;
+        float pathDistance=abs(p.x-sin(p.y*.10)*4);
+        density*=smoothstep(1.05,1.85,pathDistance);
+    }
+    if (Random(i*7+7)>=density*_StyleDensity || b.surfaceNormal.w>.5) b.shape.x=0;
+    _Source[i]=b;
+}
+[numthreads(128,1,1)]
+void Cull(uint3 id : SV_DispatchThreadID)
+{
+    if (id.x >= (uint)_Count) return;
+    Blade b=_Source[id.x];
+    if (b.shape.x==0) return;
+    float3 center=b.positionSeed.xyz+float3(0,b.shape.x*.5,0);
+    float radius=b.shape.x+1;
+    for (uint p=0;p<6;p++) if (dot(_Planes[p],float4(center,1)) < -radius) return;
+    float d=distance(_CameraPosition.xyz,b.positionSeed.xyz);
+    // Stable stochastic transitions: every blade belongs to exactly one LOD.
+    float jitter=(b.positionSeed.w-.5)*6;
+    if (d>_Distances.z || b.positionSeed.w>saturate((_Distances.z-d)/8)) return;
+    if (d+jitter<_Distances.x) _Near.Append(b);
+    else if (d+jitter<_Distances.y) _Mid.Append(b);
+    else _Far.Append(b);
+}

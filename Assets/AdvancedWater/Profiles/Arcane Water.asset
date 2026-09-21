@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aafb462eedc82743af834213d8a3ea5, type: 3}
+  m_Name: Arcane Water
+  m_EditorClassIdentifier: Assembly-CSharp::AdvancedWater.WaterProfile
+  material: {fileID: 2100000, guid: a6bc0b85ff39454baaae361f083673bd, type: 2}
+  quality: 2
+  wave1:
+    direction: 18
+    amplitude: 0.24
+    wavelength: 15
+  wave2:
+    direction: 72
+    amplitude: 0.1031999976933
+    wavelength: 7.5
+  wave3:
+    direction: -42
+    amplitude: 0.0479999989271164
+    wavelength: 3.8
+  wave4:
+    direction: 128
+    amplitude: 0.0215999995172024
+    wavelength: 1.9
+  steepness: 0.55
+  waveSpeed: 0.9
+  shapeVariation: 0.5
+  shapeScale: 0.14
+  crestSharpness: 0.62
+  rippleStrength: 1
+  rippleLifetime: 5
+  underwater: 1
+  underwaterColor: {r: 0.035, g: 0.008, b: 0.16, a: 1}
+  underwaterDensity: 0.1
+  underwaterDistortion: 0.002
+  waterlineWidth: 0.08

@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aafb462eedc82743af834213d8a3ea5, type: 3}
+  m_Name: Manga Sea
+  m_EditorClassIdentifier: Assembly-CSharp::AdvancedWater.WaterProfile
+  material: {fileID: 2100000, guid: 36bbb2b08aa34d038dbfbe31e73f5545, type: 2}
+  meshResolutionOverride: 0
+  quality: 2
+  wave1:
+    direction: 18
+    amplitude: 0.5
+    wavelength: 18
+  wave2:
+    direction: 76
+    amplitude: 0.21
+    wavelength: 10
+  wave3:
+    direction: -35
+    amplitude: 0.075
+    wavelength: 5.5
+  wave4:
+    direction: 110
+    amplitude: 0.02
+    wavelength: 3
+  steepness: 0.55
+  waveSpeed: 0.75
+  shapeVariation: 0.45
+  shapeScale: 0.14
+  crestSharpness: 0.6
+  rippleStrength: 0.65
+  rippleLifetime: 5
+  underwater: 1
+  underwaterColor: {r: 0.38, g: 0.4, b: 0.41, a: 1}
+  underwaterDensity: 0.09
+  underwaterDistortion: 0.002
+  waterlineWidth: 0.08

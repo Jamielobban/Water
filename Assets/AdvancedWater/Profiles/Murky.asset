@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aafb462eedc82743af834213d8a3ea5, type: 3}
+  m_Name: Murky
+  m_EditorClassIdentifier: Assembly-CSharp::AdvancedWater.WaterProfile
+  material: {fileID: 2100000, guid: f313984116d273941a292d0bfa2f7195, type: 2}
+  quality: 2
+  wave1:
+    direction: 15
+    amplitude: 0.16
+    wavelength: 14
+  wave2:
+    direction: 65
+    amplitude: 0.072
+    wavelength: 7
+  wave3:
+    direction: -35
+    amplitude: 0.032
+    wavelength: 3.5
+  wave4:
+    direction: 110
+    amplitude: 0.016
+    wavelength: 1.7
+  steepness: 0.45
+  waveSpeed: 0.95
+  shapeVariation: 0.5
+  shapeScale: 0.14
+  crestSharpness: 0.3
+  rippleStrength: 1
+  rippleLifetime: 5
+  underwater: 1
+  underwaterColor: {r: 0.044999972, g: 0.05199997, b: 0.019, a: 1}
+  underwaterDensity: 0.4
+  underwaterDistortion: 0.002
+  waterlineWidth: 0.08
+  directionalSpread: 0.9

@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aafb462eedc82743af834213d8a3ea5, type: 3}
+  m_Name: Watercolor Lake
+  m_EditorClassIdentifier: Assembly-CSharp::AdvancedWater.WaterProfile
+  material: {fileID: 2100000, guid: bad7c63dadb64d8e8e052df5916c934d, type: 2}
+  meshResolutionOverride: 0
+  quality: 2
+  wave1:
+    direction: 18
+    amplitude: 0.16
+    wavelength: 18
+  wave2:
+    direction: 76
+    amplitude: 0.0672
+    wavelength: 10
+  wave3:
+    direction: -35
+    amplitude: 0.024
+    wavelength: 5.5
+  wave4:
+    direction: 110
+    amplitude: 0.0064
+    wavelength: 3
+  steepness: 0.25
+  waveSpeed: 0.5
+  shapeVariation: 0.35
+  shapeScale: 0.14
+  crestSharpness: 0.1
+  rippleStrength: 0.65
+  rippleLifetime: 5
+  underwater: 1
+  underwaterColor: {r: 0.16, g: 0.35, b: 0.49, a: 1}
+  underwaterDensity: 0.09
+  underwaterDistortion: 0.002
+  waterlineWidth: 0.08
