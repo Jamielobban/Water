@@ -43,11 +43,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalA:
-        m_Texture: {fileID: 2800000, guid: b8b8d6f606fb01f4d85ec095b78f8c32, type: 3}
+        m_Texture: {fileID: 2800000, guid: ec6f0adef15b52448a82f3f183525d84, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalB:
-        m_Texture: {fileID: 2800000, guid: b8b8d6f606fb01f4d85ec095b78f8c32, type: 3}
+        m_Texture: {fileID: 2800000, guid: 88908a7c7a1f0ed418d1048378c17411, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ShoreFoamMap:
@@ -59,28 +59,30 @@ Material:
     - _CausticsDepth: 10
     - _CausticsScale: 0.65
     - _CausticsStrength: 0.3
-    - _CrestFoamStrength: 0
-    - _CrestThreshold: 0.8
+    - _CrestFoamStrength: 2.01
+    - _CrestThreshold: 0.514
     - _DepthDistance: 8
     - _EdgeFade: 0.25
-    - _FoamDistortion: 0.18
+    - _FoamDistortion: 0.396
     - _FoamScale: 0.28
-    - _FoamUnlit: 0
+    - _FoamUnlit: 0.851
     - _InteractionFoamStrength: 0
+    - _IntersectionFoamStrength: 0.61
+    - _IntersectionFoamWidth: 0.398
     - _MacroVariationScale: 0.018
     - _MacroVariationStrength: 0.4
-    - _MicroStrength: 0.15
+    - _MicroStrength: 0.113
     - _NormalStrength: 0.55
     - _PlanarStrength: 0.85
     - _ReflectionStrength: 1
-    - _RefractionStrength: 0.025
+    - _RefractionStrength: 0.0257
     - _ScatterStrength: 0.65
-    - _ShoreFoamStrength: 0.9
+    - _ShoreFoamStrength: 1.57
     - _ShoreFoamWidth: 0.75
     - _ShoreVariationScale: 0.055
     - _ShoreVariationStrength: 0.75
     - _ShoreWaveSpeed: 0.6
-    - _ShoreWaveStrength: 0.5
+    - _ShoreWaveStrength: 1.253
     - _Smoothness: 0.92
     - _Sparkle: 0.3
     - _StylizedFoamCoverage: 0

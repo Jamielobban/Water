@@ -110,7 +110,7 @@ Material:
     m_Colors:
     - _AccentColor: {r: 0.36, g: 0.77, b: 0.93, a: 1}
     - _BioGlowColor: {r: 0.06, g: 0.85, b: 1, a: 1}
-    - _Current: {r: 0.97, g: 0.2, b: 0.15, a: 0}
+    - _Current: {r: 1.31, g: 0.2, b: 0.15, a: 0}
     - _DeepColor: {r: 0.035, g: 0.12, b: 0.34, a: 1}
     - _FoamColor: {r: 0.94, g: 0.95, b: 0.86, a: 1}
     - _NormalScale: {r: 0.06, g: 0.18, b: 0, a: 0}

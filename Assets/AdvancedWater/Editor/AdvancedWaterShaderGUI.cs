@@ -34,6 +34,7 @@ namespace AdvancedWater.Editor
                 Prop("_UseFoam"); Tex("_FoamMap","Breaking-Crest Foam"); Tex("_ShoreFoamMap","Shore / Contact Foam");
                 Tex("_NoiseMap","Foam Breakup Noise"); Prop("_FoamColor"); Prop("_FoamUnlit"); Prop("_FoamScale"); Prop("_FoamDistortion");
                 Prop("_ShoreFoamWidth"); Prop("_ShoreFoamStrength"); Prop("_CrestThreshold"); Prop("_CrestFoamStrength");
+                Prop("_IntersectionFoamWidth"); Prop("_IntersectionFoamStrength");
                 Prop("_ShoreWaveStrength"); Prop("_ShoreWaveSpeed"); Prop("_InteractionFoamStrength");
             }
             EditorGUILayout.EndFoldoutHeaderGroup();
