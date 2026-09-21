@@ -9,7 +9,7 @@ refraction, planar reflections, underwater rendering, interaction and
 alternative stylized art directions.
 
 <p align="center">
-  <img src="Documentation/Images/hero.jpg" width="100%">
+  <img src="Documentation/Images/SurfaceShading.jpg" width="100%">
 </p>
 
 ## Overview
@@ -22,8 +22,8 @@ Wave behaviour and simulation settings are separated from the visual material,
 allowing the same system to be configured for calm water, deeper or murkier
 water, more reflective surfaces, or heavily stylized rendering.
 
-The system also exposes its main controls directly in Unity so that visual
-iteration can happen without modifying shader code.
+The main controls are exposed directly in Unity so that visual iteration can
+happen without modifying shader code.
 
 ## Features
 
@@ -41,7 +41,7 @@ iteration can happen without modifying shader code.
 - Underwater rendering
 - Runtime interaction and ripples
 - Flow-map support
-- Buoyancy / water interaction support
+- Buoyancy and water interaction
 - Multiple stylized rendering modes
 - Reusable water profiles and artist-facing controls
 
@@ -49,184 +49,181 @@ iteration can happen without modifying shader code.
 
 ## Water Profiles
 
-Different surface behaviours can be created by changing the water profile
-without rebuilding the material.
+The water profile controls the behaviour of the surface independently from its
+visual material.
+
+Different configurations can produce significantly different results, from
+calmer clear water to darker or murkier environments.
 
 <p align="center">
-  <img src="Documentation/Images/calm.jpg" width="49%">
-  <img src="Documentation/Images/murky.jpg" width="49%">
+  <img src="Documentation/Images/Calm.jpg" width="49%">
+  <img src="Documentation/Images/Murky.jpg" width="49%">
 </p>
 
-The profile controls the physical character of the surface, including multiple
-wave layers, direction, amplitude, wavelength, steepness, speed and crest
-behaviour.
+The profile exposes multiple wave layers alongside controls for direction,
+amplitude, wavelength, steepness, speed, shape and crest behaviour.
 
-It also contains interaction and underwater settings, allowing the same system
-to be reused across significantly different water setups.
+It also contains interaction and underwater settings.
 
 <p align="center">
-  <img src="Documentation/Images/water-surface-inspector.jpg" width="420">
+  <img src="Documentation/Images/Inspector.jpg" width="420">
 </p>
 
 ---
 
 ## Surface Shading
 
-The surface combines large-scale wave displacement with multiple layers of
-normal detail to create movement at different scales.
+The surface combines large-scale displacement with multiple layers of normal
+detail to create movement at different scales.
 
 <p align="center">
-  <img src="Documentation/Images/surface-shading.jpg" width="100%">
+  <img src="Documentation/Images/SurfaceShading.jpg" width="100%">
 </p>
 
-Primary, cross and micro-normal layers can be adjusted independently, while
-distance fading helps control surface detail across larger bodies of water.
+Primary, cross and micro-normal layers can be adjusted independently, allowing
+the amount and scale of surface detail to be controlled separately from the
+underlying waves.
 
 ---
 
 ## Depth, Colour and Absorption
 
-Water colour changes with depth using separate shallow and deep colour controls
-together with RGB absorption.
+Water appearance changes according to depth using configurable shallow and deep
+colours together with RGB absorption.
 
 <p align="center">
-  <img src="Documentation/Images/depth.jpg" width="100%">
+  <img src="Documentation/Images/Depth.jpg" width="100%">
 </p>
 
-This allows shallow areas to remain clear while deeper areas gradually lose
-transmitted light and take on a denser water colour.
-
-The material exposes depth distance and contact-edge controls so the transition
-can be adapted to different scales and environments.
+This allows shallow areas to remain clearer while deeper areas gradually become
+denser and take on a different colour.
 
 ---
 
 ## Foam and Intersections
 
-Foam is used both at shorelines and around intersecting geometry.
+Foam is used both along shorelines and around geometry intersecting the water
+surface.
 
 <p align="center">
-  <img src="Documentation/Images/foam-intersection.jpg" width="100%">
+  <img src="Documentation/Images/Foam%26Intersection.jpg" width="100%">
 </p>
 
-The system separates foam behaviour from the underlying surface shading,
-allowing intersection effects to remain readable across different water
-materials.
+The effect helps visually connect objects and terrain to the water while
+remaining independently configurable from the main surface shading.
 
 ---
 
-## Refraction and Reflections
+## Refraction and Planar Reflections
 
-The water supports both refraction through the surface and planar scene
-reflections.
-
-<p align="center">
-  <img src="Documentation/Images/refraction-planar.jpg" width="100%">
-</p>
-
-Planar reflections use a dedicated component with controls for reflection
-resolution, layer filtering, update frequency, maximum distance and clipping.
+The system supports refraction through the water surface as well as planar
+scene reflections.
 
 <p align="center">
-  <img src="Documentation/Images/planar-reflection-inspector.jpg" width="520">
+  <img src="Documentation/Images/Refraction%26Planar.jpg" width="100%">
 </p>
 
-This makes reflection quality independently configurable depending on the
-performance requirements of the scene.
+Planar reflections use a dedicated component with controls for resolution,
+reflected layers, update frequency, maximum distance and clipping.
+
+<p align="center">
+  <img src="Documentation/Images/WaterPlanar.jpg" width="520">
+</p>
+
+This allows reflection quality and update cost to be configured independently
+depending on the needs of the scene.
 
 ---
 
 ## Interaction and Buoyancy
 
-The water system can interact with objects placed within the surface.
+Objects can interact with the water surface rather than the water being purely
+visual.
 
 <p align="center">
-  <img src="Documentation/Images/buoyancy.jpg" width="100%">
+  <img src="Documentation/Images/Bouyancy-Objects.jpg" width="100%">
 </p>
 
-The water profile also exposes ripple strength and lifetime controls for
-runtime interaction.
+The water profile also exposes interaction controls such as ripple strength and
+ripple lifetime.
 
 ---
 
 # Art Direction
 
-The rendering system was designed so that the water is not tied to a single
-visual style.
+The water system is not tied to a single rendering style.
 
-Alongside the more naturalistic material, I experimented with several
-alternative treatments using the same water environment and underlying
-systems.
+Alongside the more naturalistic setup, I used the same system as a base for
+several more heavily art-directed interpretations.
 
 ## Stylized Water
 
-### Posterized Water
+### Stylized Surface
 
 <p align="center">
-  <img src="Documentation/Images/stylized-posterized.jpg" width="100%">
+  <img src="Documentation/Images/Stylized1.jpg" width="100%">
 </p>
 
-A more graphic treatment based around simplified colour separation and
-stronger surface shapes.
+A more graphic interpretation of the water using stronger colour separation
+and simplified surface shading.
 
-### Sparkle / Fantasy Water
+### Graphic / Fantasy Style
 
 <p align="center">
-  <img src="Documentation/Images/stylized-sparkle.jpg" width="100%">
+  <img src="Documentation/Images/Stylized2.png.jpg" width="100%">
 </p>
 
-A deliberately simplified surface using soft colour transitions and graphic
-specular highlights.
+A simplified treatment using a softer colour palette and graphic highlights
+instead of a more physically driven surface response.
 
 ### Pixel Water
 
 <p align="center">
-  <img src="Documentation/Images/stylized-pixel.jpg" width="100%">
+  <img src="Documentation/Images/Stylized-3-Pixel.jpg" width="100%">
 </p>
 
-A pixel-art-inspired interpretation that quantizes the surface detail into
-large graphic shapes while retaining the underlying movement of the water.
+A pixel-art-inspired treatment that converts surface detail into large,
+quantized graphic patterns while retaining the motion and shape of the water.
 
-### Layered / Paper Water
+### Layered Paper Style
 
 <p align="center">
-  <img src="Documentation/Images/stylized-paper.jpg" width="100%">
+  <img src="Documentation/Images/Stylized-Paper.jpg" width="100%">
 </p>
 
-A more experimental treatment that converts the water surface into separated
-graphic wave bands, producing a layered illustrative appearance.
+An experimental treatment that separates the water into graphic wave bands,
+creating a layered illustrative appearance.
 
 ---
 
 ## Artist Controls
 
-The system separates surface behaviour from material appearance.
+Surface behaviour and visual appearance are deliberately separated.
 
-The `WaterSurface` component references a reusable water profile containing
-wave, quality, interaction and underwater settings.
+The `WaterSurface` component references a reusable profile containing the wave,
+quality, interaction and underwater settings.
 
 <p align="center">
-  <img src="Documentation/Images/water-surface-inspector.jpg" width="420">
+  <img src="Documentation/Images/Inspector.jpg" width="420">
 </p>
 
-The material then exposes the visual rendering controls separately, including:
+The material exposes the rendering side of the system, including:
 
 - Shallow and deep colour
 - RGB absorption
-- Surface normals
-- Micro ripples
+- Primary, cross and micro normals
 - Flow maps
-- Refraction and reflection
+- Refraction and reflections
 - Foam layers
 - Caustics
 - Art-direction controls
 
 <p align="center">
-  <img src="Documentation/Images/material-inspector.jpg" width="520">
+  <img src="Documentation/Images/Shader.jpg" width="520">
 </p>
 
-This separation makes it possible to change the artistic appearance of the
-water without rebuilding its underlying surface behaviour.
+This separation allows the appearance of the water to be changed without
+rebuilding its underlying surface behaviour.
 
 ---
 
@@ -244,7 +241,7 @@ This project explores several areas of real-time rendering and Technical Art:
 - Runtime interaction
 - Underwater rendering
 - Artist-facing shader controls
-- Reusable rendering profiles
+- Reusable water profiles
 - Stylized rendering techniques
 
 ## Built With
